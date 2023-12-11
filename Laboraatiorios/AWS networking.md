@@ -236,4 +236,52 @@ Aquí se podrán ver dos rutas, una pública la cual es `` 0.0.0.0/0 `` para el 
 
 ![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/602c7847-3846-4048-9d4d-877686ba62a7)
 
+9- En el menú Servicios, elija EC2
 
+10- En la sección Iniciar instancia, elija el botón `` Launch instance ``. Y configura las siguientes opciones:
+
+  A- En el panel Nombre y etiquetas, en el cuadro de texto Nombre, ingrese `` Web-Server2 ``
+
+  B- Elija una `` Amazon Machine Image (AMI) ``
+
+    - En la sección Imágenes de aplicaciones y sistemas operativos ( `` Amazon Machine Image `` ), elija Amazon Linux
+    
+    - En la lista de imágenes de máquinas de Amazon, seleccione `` Amazon Linux 2 AMI ``
+
+  C- Elija un tipo de instancia, en este caso selecciona `` t2.micro ``
+
+  D- En la sección Par de claves (iniciar sesión), en la lista desplegable Nombre del par de claves: requerido, elija Continuar sin un par de claves (no recomendado)
+
+  E- En la sección Configuración de red, elija Editar
+
+  F- Para `` VPC - required `` , selecciona `` Lab-vpc ``
+
+  G- Para Subred, elija la subred con `` public1 `` en el nombre
+
+  H- Para `` Auto-assign public IP `` , elija Habilitar
+
+  I- Para Firewall ( `` Segurity groups `` ), elija Seleccionar un grupo de seguridad existente
+
+  J- En la lista desplegable Grupos de seguridad comunes, elija el grupo de seguridad `` Web-Server2-SG `` (Fue el creado y configurado anteriormente)
+
+  K- En la sección `` Advanced Details `` , para el perfil de instancia de IAM, elija `` Advanced Details ``
+
+  L- En la sección Detalles avanzados, copie los siguientes comandos y péguelos en el cuadro de texto Datos del usuario:
+
+    #!/bin/bash
+    # Install Apache Web Server and PHP
+    yum install -y httpd mysql
+    amazon-linux-extras install -y php7.2
+    # Download Lab files
+    wget https://aws-tc-largeobjects.s3.us-west-2.amazonaws.com/CUR-TF-100-EDNETW-1-60961/1-lab-getting-started-vpc/s3/inventory-app.zip
+    unzip inventory-app.zip -d /var/www/html/
+    # Download and install the AWS SDK for PHP
+    wget https://github.com/aws/aws-sdk-php/releases/download/3.62.3/aws.zip
+    unzip aws -d /var/www/html
+    # Turn on web server
+    chkconfig httpd on
+    service httpd start
+
+  M- Tómese un momento para revisar la configuración que ingresó
+
+  N- En la sección `` Summary `` , elija Cancelar
