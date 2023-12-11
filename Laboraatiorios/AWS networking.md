@@ -43,6 +43,8 @@
 
 ## Desarrollo del laboratorio
 
+### Localizaciones y conceptos básicos
+
 1- Selecciona la opción AWS que sale en la pantalla y te redireccionara a la siguiente página
 
 
@@ -117,4 +119,45 @@ Aquí se podrán ver dos rutas, una pública la cual es `` 0.0.0.0/0 `` para el 
 
 ![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/5e63da07-69e9-4119-8202-fe05cf285139)
 
+15- Selecciona el panel de `` Segurity groups ``
 
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/62f555fa-2dc0-4905-82dc-c1a7c4e9b955)
+
+16- Vas a seleccionar la fila que tenga el grupo de seguridad por defecto, allí tndrás que localizar el ID del VPC que se usó anteriormente.
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/19b41b98-3ad9-470f-b697-76df4d2e4ee2)
+
+17- Entra a la pestaña `` Outbound rules `` donde encontrarás todos los protocolos y todos los rangos para enviarle tráfico a cualquier dirección IP
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/d7fff375-2ea5-44e5-9e10-a27827c55167)
+
+18- Entra a la pestaña `` Inbound rules `` donde encontrarás una sola regla para enviarle tráfico a todos los protocolos y todos los rangos de recursos que usen el grupo de seguridad.
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/f058bbb2-11d2-42d4-8088-d9364238aabb)
+
+19- Localice la fila que contiene el grupo de seguridad Web-Server-SG para la VPC de ejemplo y selecciónela
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/d196e5f7-52d8-4c87-8704-8f80b8764c1d)
+
+20- Entra a la pestaña `` Inbound rules ``
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/1e13c596-b898-47a0-a134-e9de76b74f19)
+
+21- Ahora haz click en `` Editar reglas de Entrada ``
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/cfb07ecc-1a74-40b1-8fd0-3697c5ec0d96)
+
+22- Se te redireccionará a una nueva pestaña, ahora hz click en `` Add Rule ``
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/aa50d593-7869-45cd-8eb1-eae2c0917463)
+
+23- Configura de la siguiente manera la regla, y luego guarda los cambios
+  A- Para `` Type `` , selecciona `` HTTP ``
+  B- Para `` Source type `` , selecciona `` Anywhere IPv4 ``
+  C- Para `` Description `` , selecciona `` Allow web access ``
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/602c7847-3846-4048-9d4d-877686ba62a7)
+
+
+
+### Creando y Configurando mi VPC
