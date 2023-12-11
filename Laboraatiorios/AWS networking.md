@@ -151,13 +151,42 @@ Aquí se podrán ver dos rutas, una pública la cual es `` 0.0.0.0/0 `` para el 
 
 ![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/aa50d593-7869-45cd-8eb1-eae2c0917463)
 
-23- Configura de la siguiente manera la regla, y luego guarda los cambios
-  A- Para `` Type `` , selecciona `` HTTP ``
-  B- Para `` Source type `` , selecciona `` Anywhere IPv4 ``
-  C- Para `` Description `` , selecciona `` Allow web access ``
+23- Configura de la siguiente manera la regla, y luego guarda los cambios 
+
+  A- Para `` Type `` , selecciona `` HTTP `` 
+
+  B- Para `` Source type `` , selecciona `` Anywhere IPv4 `` 
+  
+  C- Para `` Description `` , selecciona `` Allow web access `` 
+  
 
 ![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/602c7847-3846-4048-9d4d-877686ba62a7)
 
+24- Ve a la ventana de servicios y luego selecciona EC2
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/8fd0e095-e5b9-4d65-8629-84f22947f77e)
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/edf41ba4-6747-4cb6-a516-84a0b81d5c31)
+
+
+25- Selecciona el campo de `` Instances (Running) `` y luego selecciona `` Web Server ``, para que en su pestaña de datalles localices que se desplegó en ek VPC de ejemplo, viendo que tiene su ID. También tiene el valor de la Subred donde se desplegó.
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/e07aa49b-9278-4f64-8215-4a51c24c4f5e)
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/c16dac7e-7e78-4895-a49b-4a34293ba3a9)
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/d6dbe0ff-44c6-4ca0-9818-859a8b6691d6)
+
+
+16- De la pestaña de detalles copia la dirección IPv4 pública, para abrirla en una nueva ventana del navegador, al darle enter verás que saldrá un mensaje de  `` Hello from your webserver! ``
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/eccbe827-ee30-48ce-9848-f700234e6877)
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/8e6abdc3-f1cb-4657-9057-ec20aec0be2f)
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/dae9d1bf-a313-4744-a7dc-5791f13ba7d8)
 
 
 ### Creando y Configurando mi VPC
+
+1- 
