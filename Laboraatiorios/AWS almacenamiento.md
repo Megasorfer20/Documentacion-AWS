@@ -27,3 +27,41 @@
 6- Después de leer las instrucciones haz click en ` Start Lab ` o `Iniciar Laboratorio`
 
 ![imagen](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/ae25493e-866e-4249-bf13-3b25dda94386)
+
+7- Haz click en `Open Console` o `Abrir Consola` que te redireccionará a una página con la simulación de una consola de AWS para realizar el laboratorio
+
+## Objetivos de este Laboratorio
+
+## Actividades del laboratorio
+
+### Tarea 1: Creando un Bucket en Amazon S3 }
+
+
+
+### Tarea 2: Configurando un sitio web estático en Amazon S3
+
+
+
+### Tarea 3: Subiendo contenido en tu Bucket
+
+
+
+### Tarea 4: Activando el acceso público a los objetos
+
+
+
+### Tarea 5: Compartir un objeto de manera segura usando una URL prediseñada
+
+
+
+### Tarea 6: Usar una Poliza de Seguridad en tu Bucket
+
+
+
+### Tarea 7: Actualiza el sitio web
+
+
+
+### Tarea 8: Explora las versiones de los archivos
+
+
