@@ -158,34 +158,135 @@ Ahora configurará los objetos individuales para que sean accesibles públicamen
 
 ### Tarea 5: Compartir un objeto de manera segura usando una URL prediseñada
 
-1-
+1- Haga clic con el botón secundario en el siguiente enlace y descargue los archivos en su equipo: Asegúrese de que el archivo mantenga su nombre, incluida la extensión
 
-2-
+  - [new-report.png](https://us-west-2-tcprod.s3.us-west-2.amazonaws.com/courses/CUR-TF-100-EDSTOR/v1.0.2.prod-68c99051/01-lab-s3/instructions/assets/new-report.png)
 
-3-
+2- Vuelva a la consola de Amazon S3 y elija la pestaña Objects (Objetos)
 
-4-
+3- Elija Upload (Cargar)
 
-5-
+4- Elija Add files (Agregar archivos)
 
-6-
+5- Elija el archivo que descargó
 
-7-
+6- Elija Upload (Cargar)
 
-8-
+7- Elija Close (Cerrar)
 
-9-
+8- En la pestaña Objects (Objetos), elija new-report.png
 
-10-
+9- En el menú Actions (Acciones), seleccione Share with a presigned URL (Compartir mediante una URL prefirmada)
 
-### Tarea 6: Usar una Poliza de Seguridad en tu Bucket
+10- En la ventana emergente, configure Time interval until the presigned URL expires (Intervalo de tiempo hasta el vencimiento de la URL prefirmada). En este caso selecciona **minutos**
+
+11- Elija Create presigned URL (Crear URL prefirmada)
+
+12- En el anuncio de la parte superior de la página, seleccione Copy presigned URL (Copiar URL prefirmada)
+
+13- Abra una nueva pestaña del navegador y pegue la URL en la barra de direcciones. Si espera el tiempo que hayas predefinido y usa el enlace nuevamente, descubrirá que venció la URL y ya no funciona.
 
 
+### Tarea 6: Usar una política de bucket para proteger el bucket
+
+1- Vuelva a la consola de Amazon S3 y elija la pestaña Permissions (Permisos)
+
+2- En Bucket policy (Política de bucket), seleccione Edit (Editar)
+
+3- Copie el siguiente texto de la política. En el editor de texto Policy (Política), reemplace el texto de la política existente por este:
+
+    {
+	    "Version": "2012-10-17",
+	    "Id": "MyBucketPolicy",
+	    "Statement": [
+		    {
+			    "Sid": "BucketPutDelete",
+			    "Effect": "Deny",
+			    "Principal": "*",
+			    "Action": "s3:DeleteObject",
+			    "Resource": [
+				    "arn:aws:s3:::<bucket-name>/index.html",
+				    "arn:aws:s3:::<bucket-name>/script.js",
+				    "arn:aws:s3:::<bucket-name>/style.css"
+            ]
+		    }
+	    ]
+    }
+
+Esta política impide que cualquier persona elimine los tres archivos que hacen funcionar su sitio web.
+
+4- Luego, actualice el texto en el editor de políticas. En las siguientes líneas de código en el editor de políticas, reemplace los <bucket-name> marcadores de posición por el nombre de su bucket.
+
+    "arn:aws:s3:::<bucket-name>/index.html",
+    "arn:aws:s3:::<bucket-name>/script.js",
+    "arn:aws:s3:::<bucket-name>/style.css"
+
+Su código actualizado debe verse parecido a lo siguiente:
+
+    "arn:aws:s3:::website-1234/index.html",
+    "arn:aws:s3:::website-1234/script.js",
+    "arn:aws:s3:::website-1234/style.css"
+
+
+5- Elija Save changes (Guardar cambios)
+
+6- Vuelva a la pestaña Object (Objeto)
+
+7- Elija **index.html**
+
+8- Elija Delete (Eliminar)
+
+9- En el panel Delete objects (Eliminar objetos), ingrese ``delete`` para confirmar que desea eliminar este archivo
+
+10- Elija Delete objects (Eliminar objetos)
+
+11- Observe que el archivo index.html aparece en el panel Failed to delete (Error al eliminar). Esto confirma que la política funciona y que impide la eliminación de los archivos del sitio web.
+
+12- Elija Close (Cerrar) para volver a la pestaña Objects (Objetos)
 
 ### Tarea 7: Actualiza el sitio web
 
+Aunque configuró una política para impedir la eliminación de archivos del sitio web, de todas maneras puede actualizar el sitio web editando el archivo HTML y cargándolo en el bucket de S3 nuevamente.
 
+Amazon S3 es un servicio de almacenamiento de objetos, por lo que debe cargar el archivo completo. Esta acción reemplazará al objeto existente en el bucket. No es posible editar el contenido de un objeto, debe reemplazarlo por completo.
+
+1- En su equipo, cargue el archivo index.html en un editor de texto (por ejemplo, Bloc de notas o TextEdit)
+
+2- Busque el texto Served from Amazon S3 (Entregado desde Amazon S3) y sustitúyalo por ``Created by <YOUR-NAME>`` y reemplace por su nombre ``<YOUR-NAME>`` (por ejemplo, Creado por **Esteban** ).
+
+3- Guarde el archivo
+
+4- Vuelva a la consola de Amazon S3 y cargue el archivo index.html que acaba de editar
+
+5- Elija index.html y el menú Actions (Acciones), elija otra vez la opción Make public using ACL (Hacer público a través de ACL)
+
+6- Elija Make public (Hacer público)
+
+7- Regrese a la pestaña del navegador web con el sitio web estático y actualice la página
 
 ### Tarea 8: Explora las versiones de los archivos
 
+El control de versiones en buckets está desactivado de forma predeterminada. Cuando está desactivado el control de versiones, no se pueden deshacer los cambios a los objetos. Por ejemplo, si carga una nueva versión de un archivo, el archivo antiguo es reemplazado por el nuevo. Se pierde el archivo original. Si elimina un archivo, se elimina de forma permanente y no puede recuperarlo.
 
+Sin embargo, cuando esté activado el control de versiones, se guardan las versiones modificadas y eliminadas de los archivos. No se presentan las versiones anteriores de los objetos de forma predeterminada, pero puede acceder a ellas mediante la consola o con programación. Ya que conserva versiones anteriores de los objetos, puede recuperarlos si lo necesita.
+
+ Es importante recordar que una vez que activa el control de versiones, no puede desactivarlo. Sin embargo, puede suspenderlo. Para obtener más información sobre el control de versiones en buckets, consulte la [Guía del usuario de Amazon Simple Storage Service](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html) .
+
+Recuerde que cuando creó el bucket, activó el control de versiones. En esta tarea, verá las versiones del objeto disponibles en su bucket.
+
+1- Vuelva a la consola de Amazon S3 y elija la pestaña Objects (Objetos)
+
+2- Elija **Show versions** (Mostrar versiones) para activar el control de versiones en buckets
+
+3- Revise la lista de objetos en el bucket}
+
+*Imagen de ejemplo de AWS*
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/bca816c2-def9-4531-81f4-e78483613b34)
+
+*Imagen de mi procedimiento*
+
+
+  - Observe que cada archivo tiene un ID de versión. Estos ID son generados automáticamente por Amazon S3 cuando se activa el control de versiones
+   
+  - También debe encontrar dos versiones del archivo index.html porque cargó una nueva versión del archivo. La versión actual es el archivo que cargó cuando actualizó su sitio web
