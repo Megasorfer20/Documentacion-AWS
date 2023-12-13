@@ -315,9 +315,20 @@ Cuando lanzó la instancia EC2, proporcionó un script que instaló un servidor 
 
 1- Seleccione la casilla de verificación junto al `Web-Server` Amazon EC2 que creó y luego elija la pestaña Detalles.
 
+<img width="754" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/cfb86872-6841-4421-abba-a80e3e581f19">
+
+
 2- Copie la dirección IPv4 pública de su instancia a su portapapeles.
 
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/ff7cc1cc-5690-4b02-83a5-aea4ca1a4af7)
+
+
 3- En su navegador web, abra una nueva pestaña, pegue la dirección IP que acaba de copiar y luego presione Entrar.
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/2fa0a78e-9f8c-4fc0-885f-3094e9ba06e4)
+
+<img width="957" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/c4c08b8b-c55d-4c7d-8752-bf816841f2ec">
+
 
 **Pregunta:** ¿Puede acceder a su servidor web? ¿Por qué no?
 
@@ -329,9 +340,18 @@ Para corregir este problema, ahora actualice el grupo de seguridad para permitir
 
 5- En el panel de navegación izquierdo, elija Grupos de seguridad
 
+<img width="151" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/f560dbf1-57c0-43db-9a5c-91b82de94cbe">
+
+
 6- Junto al grupo de seguridad del servidor web, seleccione la casilla de verificación.
 
+<img width="733" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/2f26fedb-f19d-4d4f-b6e1-100c052989bd">
+
+
 7- Elija la pestaña `Inbound rules`.
+
+<img width="717" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/d85d84e1-1597-4d96-9bd4-c3d55b46f423">
+
 
 El grupo de seguridad actualmente no tiene reglas
 
@@ -340,13 +360,22 @@ El grupo de seguridad actualmente no tiene reglas
 **Type:** elija HTTP.
 **Source:** Elija Anywhere-IPv4.
 
+<img width="886" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/85102887-6e43-4df8-a637-a3e496fbdd58">
+
+
 **Nota:** Observe que las “Reglas con fuente de 0.0.0.0/0 permiten que todas las direcciones IP accedan a su instancia. Recomendamos configurar reglas de grupo de seguridad para permitir el acceso únicamente desde direcciones IP conocidas”. Si bien esta es una práctica recomendada verdadera y común, esta práctica de laboratorio permite el acceso desde cualquier dirección IP (en cualquier lugar) para simplificar tanto la configuración del grupo de seguridad como las pruebas del sitio web que se ejecuta en su instancia EC2.
 
 43- Elija Guardar reglas
 
+<img width="398" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/e9d69c45-3107-4977-add1-dc3d966518a8">
+
+
 44- Regrese a la pestaña del navegador del servidor web con la dirección IPv4 pública que abrió anteriormente y elija actualizar la página.
 
-Ahora debería encontrar un sitio web con el mensaje ¡Bienvenidos estudiantes!
+Ahora debería encontrar un sitio web con el mensaje `Welcome Students!`
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/0d86eb31-0f4e-4e58-b97f-515245a2c573)
+
 
 **Nota:** Si el sitio web no se carga, verifique que la URL en la barra de direcciones comience con `http://` y no `https://`
 
@@ -360,26 +389,53 @@ Una característica conveniente de Fleet Manager es la capacidad de conectarse a
 
 1- En la consola de administración de AWS en el menú Servicios, busque y seleccione ``Systems Manager``.
 
+<img width="700" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/305970d5-3d4b-4aab-b989-3b258ac0a2cb">
+
+
 2- En el panel de nagivación izquierda, seleccione ``Fleet Manager``.
+
+<img width="187" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/16742adf-e569-4d6f-b24f-8d22bf5d91d5">
+
 
 3- En nodos administrados, seleccione su instancia de ``Web-Server`` EC2.
 
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/c48e97c1-5b2b-4ea1-9766-ade7b9067513)
+
+
 4- Desde la lista desplegable de las acciones del nodo, elija conectarse con el escritorio remoto.
+
+<img width="449" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/f52d3e5b-c04b-4a95-9a0c-71b7ea8cb187">
+
 
 Se abre una nueva pestaña.
 
 5- Ingrese los siguientes valores:
 
- - Nombre de usuario: ``Administrador``
+ - Nombre de usuario: ``Administrator``
  - Contraseña: ``P@ssw0rd!``
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/cbb69810-4675-444b-af27-16ef8695ff1f)
+
 
 6- Elija ``Connect``.
 
+<img width="442" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/27eb3f82-406c-46e0-93a2-eeaf7fd6962f">
+
+
 Después de varios segundos, el panel muestra el escritorio de Windows. Puede navegar por este escritorio como lo haría en una computadora local. Como aprendió anteriormente, con Amazon EC2, puede acceder rápidamente a los recursos de cálculo. En lugar de comprar hardware físico y configurar un sistema operativo, todo lo que tiene que hacer es iniciar una instancia de EC2, y todo ese trabajo se realiza automáticamente en minutos.
+
+<img width="460" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/31040bc4-2658-4a5a-abd4-6068c5db6a92">
+
 
 7- Para desconectar en su instancia de `Web-Server`, elija Action y luego elija la `End session`.
 
+<img width="445" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/00e7668d-0240-459b-b6b1-9dff0d61391f">
+
+
 8- En la ventana emergente, elija la `End session` nuevamente.
+
+<img width="513" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/63fd289a-f98d-42a0-9a7c-c72c271906b8">
+
 
 ### Tarea 5: Reescalar tu instancia
 
@@ -393,15 +449,29 @@ Cuando detiene una instancia, se apaga. No hay carga para una instancia de EC2 d
 
 1- Desde la consola de administración de AWS en el menú de servicios, elija EC2
 
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/25e2d38e-e140-4fc3-99af-f3fbd4fcce7a)
+
 2- En la consola de gestión de EC2, en el panel de navegación izquierda, elija instancias.
+
+<img width="154" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/61eeb956-c4fb-4a63-bb79-6494d4e91007">
+
 
 3- Seleccione la casilla de verificación junto a su instancia de servidor web. En la parte superior de la página, elija el menú desplegable de estado de instancia y elija Stop Instance.
 
+<img width="513" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/6b2a6c11-95bb-4bce-b80e-e3c5e15314b3">
+
+
 4- En el `Stop instance?` Ventana emergente, elija parar.
+
+<img width="479" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/34257a8b-a801-41cc-96d5-58e5b9ae4acf">
+
 
 Su instancia realiza un apagado normal y luego deja de funcionar.
 
 5- Espere a que el estado de instancia se detenga.
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/82b58193-e475-4356-b12e-2f1e20969491)
+
 
 #### Cambiar el tipo de instancia
 
@@ -409,7 +479,16 @@ Su instancia realiza un apagado normal y luego deja de funcionar.
 
 - Tipo de instancia: seleccione T2.Nano.
 
+<img width="731" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/11ba456e-e83c-434c-bf97-594db794ba94">
+
+<img width="650" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/47509df4-c9a3-4975-9c08-516a2a478db8">
+
+
+
 7- Elija aplicar
+
+<img width="650" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/cd50854f-d587-404c-8ad0-235244593e2d">
+
 
 _**Nota:** Está restringido de usar otros tipos de instancias en este laboratorio._
 
@@ -419,7 +498,13 @@ Cuando la instancia se inicia nuevamente, es una instancia t2.nano. Ahora comien
 
 8- En el panel de navegación izquierda, elija instancias. Junto a su ``Web-Server``, seleccione la casilla de verificación.
 
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/9a46dba1-1163-4a95-ab70-5e1e9c0f614a)
+
+
 9- Desde el menú desplegable de estado de instancia, elija Iniciar instancia.
+
+<img width="176" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/c553da87-3f7e-4f0d-8829-f71085e17635">
+
 
 Una vez que se reinicia la instancia, el estado de instancia se muestra en ejecución.
 
@@ -431,7 +516,13 @@ En esta tarea, aprenderá a utilizar la protección contra terminación.
 
 1- Seleccione la casilla de verificación junto a su instancia de `Web-Server`. En el menú desplegable `Instance state`, elija `Terminate instance`.
 
+<img width="167" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/e63f7bcf-6c68-4984-a4e3-53e4b4cc383a">
+
+
 2- Observe el mensaje junto a la opción Terminar instancia: La protección de terminación está habilitada para una o más de las instancias seleccionadas.
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/aa7648cf-0494-4e23-b58d-c4c3db33c408)
+
 
 Esta es una salvaguardia para evitar la terminación accidental de una instancia. Si realmente desea finalizar la instancia, debe desactivar la protección de terminación.
 
@@ -439,9 +530,17 @@ Puede habilitar y deshabilitar fácilmente la protección contra terminación de
 
 3- En el menú desplegable Acciones, elija `Instance settings` y luego elija `Change termination protection`.
 
+<img width="587" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/13151510-9d48-4377-97c0-6ecaeb07e561">
+
+
 4- Elija Guardar.
 
+<img width="449" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/ea16177e-549f-4486-b914-7b69d3f40d2c">
+
+
 5- Ahora, intenta terminar la instancia nuevamente
+
+<img width="167" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/e63f7bcf-6c68-4984-a4e3-53e4b4cc383a">
 
 El estado de la instancia ahora finalizará exitosamente.
 
