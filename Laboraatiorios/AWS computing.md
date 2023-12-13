@@ -287,6 +287,22 @@ A medida que sus necesidades cambian, puede encontrar que su instancia está exc
 
 #### Detén tu instancia
 
+Antes de que pueda cambiar el tamaño de una instancia, debe detenerla
+
+Cuando detiene una instancia, se apaga. No hay carga para una instancia de EC2 detenido, pero la carga de almacenamiento para los volúmenes EBS adjuntos permanece.
+
+1- Desde la consola de administración de AWS en el menú de servicios, elija EC2
+
+2- En la consola de gestión de EC2, en el panel de navegación izquierda, elija instancias.
+
+3- Seleccione la casilla de verificación junto a su instancia de servidor web. En la parte superior de la página, elija el menú desplegable de estado de instancia y elija Stop Instance.
+
+4- En el `Stop instance?` Ventana emergente, elija parar.
+
+Su instancia realiza un apagado normal y luego deja de funcionar.
+
+5- Espere a que el estado de instancia se detenga.
+
 #### Cambiar el tipo de instancia
 
 #### Iniciar la instancia redimensionada
