@@ -305,7 +305,23 @@ Su instancia realiza un apagado normal y luego deja de funcionar.
 
 #### Cambiar el tipo de instancia
 
+6- Seleccione la casilla de verificación junto a su servidor web. En el menú desplegable Acciones, seleccione Configuración de instancia Cambiar el tipo de instancia y luego configure la siguiente opción:
+
+- Tipo de instancia: seleccione T2.Nano.
+
+7- Elija aplicar
+
+_**Nota:** Está restringido de usar otros tipos de instancias en este laboratorio._
+
 #### Iniciar la instancia redimensionada
+
+Cuando la instancia se inicia nuevamente, es una instancia t2.nano. Ahora comienza la instancia nuevamente, que tiene menos memoria pero más espacio en disco.
+
+8- En el panel de navegación izquierda, elija instancias. Junto a su ``Web-Server``, seleccione la casilla de verificación.
+
+9- Desde el menú desplegable de estado de instancia, elija Iniciar instancia.
+
+Una vez que se reinicia la instancia, el estado de instancia se muestra en ejecución.
 
 ### Tarea 6: Probar la protección de terminación
 
