@@ -215,9 +215,37 @@ Si no puede acceder a su instancia a través de SSH o RDP, puede capturar una ca
 
 ### Tarea 5:
 
-### Tarea 6:
+### Tarea 6: Probar la protección de terminación
 
-### Tarea 7:
+Puede eliminar su instancia cuando ya no la necesite. Esto se conoce como terminar su instancia. No puede conectarse ni reiniciar una instancia una vez finalizada.
+
+En esta tarea, aprenderá a utilizar la protección contra terminación.
+
+1- Seleccione la casilla de verificación junto a su instancia de `Web-Server`. En el menú desplegable `Instance state`, elija `Terminate instance`.
+
+2- Observe el mensaje junto a la opción Terminar instancia: La protección de terminación está habilitada para una o más de las instancias seleccionadas.
+
+Esta es una salvaguardia para evitar la terminación accidental de una instancia. Si realmente desea finalizar la instancia, debe desactivar la protección de terminación.
+
+Puede habilitar y deshabilitar fácilmente la protección contra terminación desde el menú desplegable Acciones.
+
+3- En el menú desplegable Acciones, elija `Instance settings` y luego elija `Change termination protection`.
+
+4- Elija Guardar.
+
+5- Ahora, intenta terminar la instancia nuevamente
+
+El estado de la instancia ahora finalizará exitosamente.
+
+### Tarea 7: Explorando los límites de EC2
+
+Amazon EC2 proporciona diferentes recursos que puede utilizar. Estos recursos incluyen imágenes, instancias, volúmenes e instantáneas. Cuando crea una cuenta de AWS, existen límites predeterminados para estos recursos por región.
+
+1- En el panel de navegación izquierdo, elija `Limits`.
+
+**Nota:** Existe un límite en la cantidad de instancias que puede iniciar en esta región. Al lanzar una instancia, la solicitud no debe hacer que su uso exceda el límite de instancia actual en esa región.
+
+Puedes solicitar un aumento para muchos de estos límites
 
 ## Resumen
 
