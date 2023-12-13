@@ -209,9 +209,48 @@ Si no puede acceder a su instancia a través de SSH o RDP, puede capturar una ca
 
 7- En la parte inferior de la página, elija Cancelar
 
-### Tarea 3:
+### Tarea 3: Actualizar su grupo de seguridad y acceder al servidor web
 
-### Tarea 4:
+Cuando lanzó la instancia EC2, proporcionó un script que instaló un servidor web y creó una página web simple. En esta tarea, accede al contenido desde el servidor web.
+
+1- Seleccione la casilla de verificación junto al `Web-Server` Amazon EC2 que creó y luego elija la pestaña Detalles.
+
+2- Copie la dirección IPv4 pública de su instancia a su portapapeles.
+
+3- En su navegador web, abra una nueva pestaña, pegue la dirección IP que acaba de copiar y luego presione Entrar.
+
+**Pregunta:** ¿Puede acceder a su servidor web? ¿Por qué no?
+
+Actualmente no puede acceder a su servidor web porque el grupo de seguridad no permite el tráfico entrante en el puerto 80, que se utiliza para solicitudes web HTTP. Este paso es una demostración de cómo utilizar un grupo de seguridad como firewall para restringir el tráfico de red que se permite dentro y fuera de una instancia.
+
+Para corregir este problema, ahora actualice el grupo de seguridad para permitir el tráfico web en el puerto 80.
+
+4- Mantenga abierta la pestaña del navegador, pero regrese a la pestaña de la Consola de administración EC2
+
+5- En el panel de navegación izquierdo, elija Grupos de seguridad
+
+6- Junto al grupo de seguridad del servidor web, seleccione la casilla de verificación.
+
+7- Elija la pestaña `Inbound rules`.
+
+El grupo de seguridad actualmente no tiene reglas
+
+8- Elija `Edit inbound rules` y luego elija Agregar regla y configure las siguientes opciones:
+
+**Type:** elija HTTP.
+**Source:** Elija Anywhere-IPv4.
+
+**Nota:** Observe que las “Reglas con fuente de 0.0.0.0/0 permiten que todas las direcciones IP accedan a su instancia. Recomendamos configurar reglas de grupo de seguridad para permitir el acceso únicamente desde direcciones IP conocidas”. Si bien esta es una práctica recomendada verdadera y común, esta práctica de laboratorio permite el acceso desde cualquier dirección IP (en cualquier lugar) para simplificar tanto la configuración del grupo de seguridad como las pruebas del sitio web que se ejecuta en su instancia EC2.
+
+43- Elija Guardar reglas
+
+44- Regrese a la pestaña del navegador del servidor web con la dirección IPv4 pública que abrió anteriormente y elija actualizar la página.
+
+Ahora debería encontrar un sitio web con el mensaje ¡Bienvenidos estudiantes!
+
+Nota: Si el sitio web no se carga, verifique que la URL en la barra de direcciones comience con `http://` y no `https://`
+
+### Tarea 4: 
 
 ### Tarea 5:
 
