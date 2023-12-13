@@ -248,11 +248,48 @@ El grupo de seguridad actualmente no tiene reglas
 
 Ahora debería encontrar un sitio web con el mensaje ¡Bienvenidos estudiantes!
 
-Nota: Si el sitio web no se carga, verifique que la URL en la barra de direcciones comience con `http://` y no `https://`
+**Nota:** Si el sitio web no se carga, verifique que la URL en la barra de direcciones comience con `http://` y no `https://`
 
-### Tarea 4: 
+### Tarea 4: Conectarse a su instancia utilizando ``AWS Systems Manager Fleet Manager``
 
-### Tarea 5:
+Con la capacidad de Fleet Manager de AWS Systems Manager, puede administrar y configurar de forma remota sus nodos administrados. Un nodo administrado es cualquier máquina configurada para Systems Manager.
+
+Cuando comenzó este laboratorio, su usuario de AWS recibió automáticamente permisos para usar Sistement Manager. Además, la política de Gestión de Identidad y Acceso de AWS (IAM) que seleccionó al configurar su instancia de EC2 encendió Systems Manager para su instancia de servidor web.
+
+Una característica conveniente de Fleet Manager es la capacidad de conectarse a su instancia de EC2 usando un navegador. En esta tarea, se conecta a su escritorio de Windows con Fleet Manager.
+
+1- En la consola de administración de AWS en el menú Servicios, busque y seleccione ``Systems Manager``.
+
+2- En el panel de nagivación izquierda, seleccione ``Fleet Manager``.
+
+3- En nodos administrados, seleccione su instancia de ``Web-Server`` EC2.
+
+4- Desde la lista desplegable de las acciones del nodo, elija conectarse con el escritorio remoto.
+
+Se abre una nueva pestaña.
+
+5- Ingrese los siguientes valores:
+
+ - Nombre de usuario: ``Administrador``
+ - Contraseña: ``P@ssw0rd!``
+
+6- Elija ``Connect``.
+
+Después de varios segundos, el panel muestra el escritorio de Windows. Puede navegar por este escritorio como lo haría en una computadora local. Como aprendió anteriormente, con Amazon EC2, puede acceder rápidamente a los recursos de cálculo. En lugar de comprar hardware físico y configurar un sistema operativo, todo lo que tiene que hacer es iniciar una instancia de EC2, y todo ese trabajo se realiza automáticamente en minutos.
+
+7- Para desconectar en su instancia de `Web-Server`, elija Action y luego elija la `End session`.
+
+8- En la ventana emergente, elija la `End session` nuevamente.
+
+### Tarea 5: Reescalar tu instancia
+
+A medida que sus necesidades cambian, puede encontrar que su instancia está excesiva (demasiado pequeña) o subutilizada (demasiado grande). Si es así, puede cambiar el tipo de instancia. Por ejemplo, si una instancia T2.Micro es demasiado pequeña para su carga de trabajo, puede cambiarla a una instancia M5. Medium
+
+#### Detén tu instancia
+
+#### Cambiar el tipo de instancia
+
+#### Iniciar la instancia redimensionada
 
 ### Tarea 6: Probar la protección de terminación
 
