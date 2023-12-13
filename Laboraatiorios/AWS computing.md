@@ -173,7 +173,41 @@ _**Nota:** actualice si es necesario._
 - **Comprobaciones de estado:** 2/2 comprobaciones aprobadas
 
 
-### Tarea 2:
+### Tarea 2: Monitorear su instancia
+
+El monitoreo es una parte importante para mantener la confiabilidad, la disponibilidad y el rendimiento de sus instancias EC2 y sus soluciones de AWS.
+
+1- Elija la pestaña Verificaciones de estado.
+
+Con la supervisión del estado de las instancias, puede determinar rápidamente si Amazon EC2 ha detectado algún problema que pueda impedir que sus instancias ejecuten aplicaciones. Amazon EC2 realiza comprobaciones automatizadas en cada instancia EC2 en ejecución para identificar problemas de hardware y software.
+
+Observe que se han superado las comprobaciones de `System reachability` y de ` Instance reachability`.
+
+2- Elija la pestaña Monitoreo.
+
+Esta pestaña muestra las métricas de Amazon CloudWatch para su instancia. Actualmente, no hay muchas métricas para mostrar porque la instancia se lanzó recientemente.
+
+Puede elegir un gráfico para ver una vista ampliada.
+
+Amazon EC2 envía métricas a Amazon CloudWatch para sus instancias EC2. La monitorización básica (5 minutos) está activada de forma predeterminada y es gratuita. Puede activar el seguimiento detallado (1 minuto). Con un seguimiento detallado, se le cobrará por la métrica que envíe a CloudWatch.
+
+3- En la parte superior de la página, elija el menú desplegable Acciones. Seleccione `Monitor and troubleshoot > Get system log`.
+
+El registro del sistema muestra la salida de la consola de la instancia, que es una herramienta valiosa para el diagnóstico de problemas. Es especialmente útil para solucionar problemas de configuración del servicio que podrían provocar que una instancia finalice o se vuelva inaccesible. Si no ve un registro del sistema, espere unos minutos y vuelva a intentarlo.
+
+4- Desplácese por el registro y revise los mensajes en el resultado
+
+5- Para regresar al panel de Amazon EC2, elija Cancelar
+
+6- Con su `Web-Server` seleccionado, elija el menú desplegable Acciones y seleccione `Monitor and troubleshoot > Get instance screenshot`
+
+Esta opción le muestra cómo se vería la consola de su instancia EC2 si se le conectara una pantalla. Debido a que se trata de una instancia de Windows, la captura de pantalla muestra una pantalla de inicio de sesión bloqueada.
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/4e202ad4-b012-49fa-97c3-dd63a53b9081)
+
+Si no puede acceder a su instancia a través de SSH o RDP, puede capturar una captura de pantalla de su instancia y verla como una imagen. Esta opción proporciona visibilidad sobre el estado de la instancia para una resolución de problemas más rápida
+
+7- En la parte inferior de la página, elija Cancelar
 
 ### Tarea 3:
 
