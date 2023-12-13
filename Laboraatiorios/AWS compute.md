@@ -28,9 +28,18 @@ En esta tarea, lanza una instancia EC2 con protección de terminación. La prote
 
 1- En la Consola de administración de AWS, en el menú Servicios, ingrese EC2. De los resultados de la búsqueda, elija EC2.
 
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/25e2d38e-e140-4fc3-99af-f3fbd4fcce7a)
+
+
 2- En el panel de navegación izquierdo, elija `EC2 Dashboard` para asegurarse de estar en la página del panel.
 
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/d0a102de-d402-4c80-b174-1f7b26cd436c)
+
+
 3- En la sección `Launch instance`, elija el botón `Launch instance`.
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/1919a1bc-9e3e-4be6-a717-4a5cb74a07b0)
+
 
 #### Paso 1: NOMBRE A SU INSTANCIA EC2
 
@@ -40,9 +49,18 @@ Cuando le asigna un nombre a su instancia, AWS crea un par ``key-value``. La `ke
 
 4- En el panel Nombre y etiquetas, en el cuadro de texto Nombre, ingrese `web-server`
 
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/77ed0f11-d454-4264-824b-8dd35f6709aa)
+
+
 5- Elija el enlace Agregar etiquetas adicionales.
 
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/6a459fef-25a4-4651-a733-1d5aa6606719)
+
+
 6- En la lista desplegable Tipos de recursos, seleccione Instancias y volúmenes.
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/eb2e5911-2713-48a9-b6eb-f53b5514b666)
+
 
 
 #### Paso 2: ELIJA UN AMI
@@ -57,9 +75,18 @@ La lista de inicio rápido contiene las AMI más utilizadas. También puede crea
 
 7- Localice la sección `Application and OS Images` (Imagen de máquina de Amazon). Está justo debajo de la sección `Name and tags`
 
-8- En el cuadro de búsqueda, ingrese ``Servidor Windows 2019 básico`` y presione Entrar
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/87e87634-a3f0-4b42-a504-99e3f9e1f4a9)
+
+
+8- En el cuadro de búsqueda, ingrese ``Microsoft Windows Server 2019 Base`` y presione Entrar
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/d87ce807-fb50-45b3-b965-f520e6a0a4d7)
+
 
 9- Junto a ``Microsoft Windows Server 2019 Base``, elija Seleccionar
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/911badd1-f9ea-4ae3-ad6a-d6a270736ec7)
+
 
 10- Elija Confirmar cambios.
 
@@ -71,6 +98,9 @@ En este paso, elige una instancia ``t2.micro``. Este tipo de instancia tiene 1 C
 
 11- En la sección ``Tipo de instancia``, mantenga el tipo de instancia predeterminado, ``t2.micro``.
 
+<img width="545" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/a4eaaeeb-dad0-4a2d-b1fd-b404bd0b724b">
+
+
 #### Paso 4: CONFIGURAR UN `KEY` DE LLAVES
 
 Amazon EC2 utiliza criptografía de clave pública para cifrar y descifrar la información de inicio de sesión. Para iniciar sesión en su instancia, debe crear un par de claves, especificar el nombre del par de claves cuando inicia la instancia y proporcionar la clave privada cuando se conecta a la instancia.
@@ -78,6 +108,9 @@ Amazon EC2 utiliza criptografía de clave pública para cifrar y descifrar la in
 En esta práctica de laboratorio, no se conecta a su instancia mediante una clave SSH, por lo que no necesita configurar un `Key pair`.
 
 12- En la sección `key pair` (iniciar sesión), en la lista desplegable `Key pair name - required`, elija `Proceed without a key pair` (no recomendado).
+
+<img width="541" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/1b4239c8-d19b-44b7-aebd-7f008eb9f04d">
+
 
 #### Paso 5: CONFIGURAR LOS AJUSTES DE RED
 
@@ -87,13 +120,27 @@ La nube privada virtual (VPC) indica en qué VPC desea iniciar la instancia. Pue
 
 13- En la sección `Network settings`, elija Editar
 
+<img width="565" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/b7fd7306-15ff-427f-9317-ce0b691b136b">
+
+
 14- En la lista desplegable VPC: requerida, elija ``Lab VPC``
+
+<img width="410" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/f787f98d-3496-404e-9f20-85bc49f7a68c">
+
 
 La VPC de laboratorio se creó utilizando una plantilla de ``AWS CloudFormation`` durante el proceso de configuración de su laboratorio. Esta VPC incluye dos subredes públicas en dos zonas de disponibilidad diferentes.
 
 15- Para `Security group name - required`, elija `Select existing security group`.
 
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/b9f89814-cab3-4930-93c3-4ce10ea227bb)
+
+
 16- En `Common security groups`, seleccione `Web Server security group`.
+
+<img width="401" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/1f1a8789-32f8-40e5-a5f4-3d34b0d601a1">
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/d1f8088a-65e1-4e51-a89b-93b6f9ee8f62)
+
 
 Un grupo de seguridad actúa como un firewall virtual que controla el tráfico de una o más instancias. Cuando lanza una instancia, asocia uno o más grupos de seguridad con la instancia. Agrega reglas a cada grupo de seguridad que permiten el tráfico hacia o desde sus instancias asociadas. Puedes modificar las reglas de un grupo de seguridad en cualquier momento; las nuevas reglas se aplican automáticamente a todas las instancias asociadas con el grupo de seguridad.
 
@@ -105,15 +152,29 @@ La instancia EC2 se inicia utilizando un volumen de disco predeterminado de 30 G
 
 17- En la sección Configurar almacenamiento, mantenga la configuración de almacenamiento predeterminada
 
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/9a2c7ebf-e700-48ad-b74c-14feb7678e6c)
+
+
 #### Paso 7: CONFIGURAR DETALLES AVANZADOS
 
 18- Expanda la sección Detalles avanzados.
 
+<img width="568" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/fdf7c797-4828-4619-8e73-1a3c1f0a5e42">
+
+<img width="565" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/d717f588-ff36-4f8a-919c-18cacd97fc3c">
+
+
 19- Para el perfil de instancia de IAM, elija la función que tenga ``LabInstanceProfile`` en el nombre.
+
+<img width="402" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/3e1321ba-c7ee-4707-83da-2ee9b82133ed">
+
 
 Cuando ya no necesite una instancia EC2, puede finalizarla, lo que significa que la instancia se detiene y Amazon EC2 libera los recursos de la instancia. No puede reiniciar una instancia terminada. Si desea evitar que sus usuarios finalicen accidentalmente la instancia, puede activar (habilitar) la protección de terminación para la instancia, lo que evita que los usuarios finalicen instancias.
 
 20- En la lista desplegable `Termination protection`, elija Habilitar.
+
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/00e66b46-354a-42c0-aa5f-f67cd0f6b900)
+
 
 Cuando lanza una instancia en Amazon EC2, tiene la opción de pasar datos de usuario a la instancia. Estos comandos se pueden utilizar para realizar tareas comunes de configuración automatizada e incluso ejecutar scripts después de que se inicie la instancia.
 
@@ -138,6 +199,9 @@ Cuando lanza una instancia en Amazon EC2, tiene la opción de pasar datos de usu
       $UserAccount | Set-LocalUser -Password $Secure_String_Pwd
       </powershell>
 
+<img width="467" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/79c364be-e723-4a9f-a530-1629e7d9faf6">
+
+
 El guión hace lo siguiente:
 
 - Instala un servidor web de Microsoft Internet Information Services (IIS)
@@ -151,15 +215,27 @@ Ahora que ha configurado los ajustes de su instancia EC2, es hora de iniciar su 
 
 22- En la sección `Summary `, elija `Launch instance`.
 
+<img width="278" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/c3f7273a-5680-4c65-816c-7fd3520b9e89">
+
+
 Un mensaje indica que ha iniciado exitosamente el lanzamiento de su instancia.
 
+<img width="881" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/49a6e9d7-ff23-4101-85ae-ff26c7558cb6">
+
+
 23- Elija Ver todas las instancias
+
+<img width="866" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/543a1ede-c648-47d5-8a93-4848798fd690">
+
 
 La instancia aparece en estado Pendiente, lo que significa que se está lanzando. Luego cambia a En ejecución, lo que indica que la instancia ha comenzado a iniciarse. Pasará un breve periodo de tiempo antes de que puedas acceder a la instancia.
 
 La instancia recibe un nombre público de Sistema de nombres de dominio (DNS) que puede utilizar para comunicarse con la instancia desde Internet.
 
 24- Al lado de su `Web-Server`, seleccione la casilla de verificación. La pestaña Detalles muestra información detallada sobre su instancia.
+
+<img width="755" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/44d633b8-eecd-4452-913b-fe88ca7366b4">
+
 
 Para ver más información en la pestaña Detalles, arrastre el divisor de la ventana hacia arriba.
 
@@ -172,6 +248,8 @@ _**Nota:** actualice si es necesario._
 - **Estado de instancia:** en ejecución
 - **Comprobaciones de estado:** 2/2 comprobaciones aprobadas
 
+<img width="754" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/75e5c2cc-23bc-450a-b728-188f378ba632">
+
 
 ### Tarea 2: Monitorear su instancia
 
@@ -179,11 +257,17 @@ El monitoreo es una parte importante para mantener la confiabilidad, la disponib
 
 1- Elija la pestaña Verificaciones de estado.
 
+<img width="755" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/2b94d303-60e3-433d-a011-db5f4ca58b4a">
+
+
 Con la supervisión del estado de las instancias, puede determinar rápidamente si Amazon EC2 ha detectado algún problema que pueda impedir que sus instancias ejecuten aplicaciones. Amazon EC2 realiza comprobaciones automatizadas en cada instancia EC2 en ejecución para identificar problemas de hardware y software.
 
 Observe que se han superado las comprobaciones de `System reachability` y de ` Instance reachability`.
 
 2- Elija la pestaña Monitoreo.
+
+<img width="741" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/f9761dbd-4663-45f8-950a-7d4772fedfd5">
+
 
 Esta pestaña muestra las métricas de Amazon CloudWatch para su instancia. Actualmente, no hay muchas métricas para mostrar porque la instancia se lanzó recientemente.
 
@@ -193,13 +277,23 @@ Amazon EC2 envía métricas a Amazon CloudWatch para sus instancias EC2. La moni
 
 3- En la parte superior de la página, elija el menú desplegable Acciones. Seleccione `Monitor and troubleshoot > Get system log`.
 
+<img width="653" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/29e8e12f-2d42-44ae-99ad-b707a90c8f72">
+
 El registro del sistema muestra la salida de la consola de la instancia, que es una herramienta valiosa para el diagnóstico de problemas. Es especialmente útil para solucionar problemas de configuración del servicio que podrían provocar que una instancia finalice o se vuelva inaccesible. Si no ve un registro del sistema, espere unos minutos y vuelva a intentarlo.
 
 4- Desplácese por el registro y revise los mensajes en el resultado
 
+<img width="691" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/3ae9748c-2229-4bca-b712-452805b7b040">
+
 5- Para regresar al panel de Amazon EC2, elija Cancelar
 
+<img width="735" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/b323e844-4c60-45f0-911c-c2c3d707348d">
+
+
 6- Con su `Web-Server` seleccionado, elija el menú desplegable Acciones y seleccione `Monitor and troubleshoot > Get instance screenshot`
+
+<img width="490" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/4162afbc-0327-4a83-8102-acc17db85d9c">
+
 
 Esta opción le muestra cómo se vería la consola de su instancia EC2 si se le conectara una pantalla. Debido a que se trata de una instancia de Windows, la captura de pantalla muestra una pantalla de inicio de sesión bloqueada.
 
@@ -207,7 +301,13 @@ Esta opción le muestra cómo se vería la consola de su instancia EC2 si se le 
 
 Si no puede acceder a su instancia a través de SSH o RDP, puede capturar una captura de pantalla de su instancia y verla como una imagen. Esta opción proporciona visibilidad sobre el estado de la instancia para una resolución de problemas más rápida
 
+<img width="670" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/349fa353-69d5-4c46-919a-dea0fd424e6f">
+
+
 7- En la parte inferior de la página, elija Cancelar
+
+<img width="620" alt="image" src="https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/ab99f26d-3213-4d45-a99f-fd629b947c70">
+
 
 ### Tarea 3: Actualizar su grupo de seguridad y acceder al servidor web
 
