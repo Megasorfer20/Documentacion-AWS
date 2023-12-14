@@ -118,27 +118,144 @@ Recientemente, contrató al usuario-1 para que brinde soporte a Amazon S3. Lo ag
 
 Ignore los errores “no autorizados” que aparezcan durante esta tarea. Se producen porque su cuenta de laboratorio tiene permisos limitados, pero esto no afectará su capacidad para completar el laboratorio.
 
-Agregar al usuario-1 al grupo S3-Support.
-En el panel de navegación de la izquierda, elija User groups (Grupos de usuarios).
-Elija el nombre del grupo S3-Support.
-En la pestaña Users (Usuarios), seleccione Add users (Agregar usuarios).
-Seleccione  user-1 (usuario-1) y elija Add users (Agregar usuarios).
+#### Agregar al usuario-1 al grupo S3-Support.
+
+1- En el panel de navegación de la izquierda, elija User groups (Grupos de usuarios).
+2- Elija el nombre del grupo S3-Support.
+3- En la pestaña Users (Usuarios), seleccione Add users (Agregar usuarios).
+4- Seleccione  user-1 (usuario-1) y elija Add users (Agregar usuarios).
+
 En la pestaña Users (Usuarios), verá que se agregó el usuario-1 al grupo.
 
-Agregar al usuario-2 al grupo EC2-Support.
+#### Agregar al usuario-2 al grupo EC2-Support.
+
 Contrató al usuario-2 para que brinde soporte a Amazon EC2. Lo agregará al grupo EC2-Support para que pueda heredar los permisos necesarios mediante la política adjunta AmazonEC2ReadOnlyAccess.
 
-Con lo aprendido en los pasos anteriores, agregue al usuario-2 al grupo EC2-Support.
+5- Con lo aprendido en los pasos anteriores, agregue al usuario-2 al grupo EC2-Support.
+
 Ahora, el usuario-2 debería formar parte del grupo EC2-Support.
 
-Agregar al usuario-3 al grupo EC2-Admin
+#### Agregar al usuario-3 al grupo EC2-Admin
+
 Contrató al usuario-3 como administrador de Amazon EC2 para que administre sus instancias EC2. Lo agregará al grupo EC2-Admin para que pueda heredar los permisos necesarios mediante la política adjunta EC2-Admin-Policy.
 
-Con lo aprendido en los pasos anteriores, agregue al usuario-3 al grupo EC2-Admin.
+6- Con lo aprendido en los pasos anteriores, agregue al usuario-3 al grupo EC2-Admin.
+
 Ahora, el usuario-3 debería formar parte del grupo EC2-Admin.
 
-En el panel de navegación de la izquierda, elija User groups (Grupos de usuarios).
+7- En el panel de navegación de la izquierda, elija User groups (Grupos de usuarios).
+
 Cada grupo debería tener un 1 en la columna Users (Usuarios). Esto indica la cantidad de usuarios en cada grupo.
 
 Si no se muestra un 1 junto a cada grupo, revise las instrucciones anteriores para garantizar que cada usuario esté asignado a un grupo, como se muestra en la tabla de la sección Situación empresarial.
 
+### Tarea 3: iniciar sesión y probar usuarios
+
+En esta tarea, probará los permisos de cada usuario de IAM en la consola.
+
+#### Obtener la URL de inicio de sesión de la consola
+
+1- En el panel de navegación de la izquierda, elija Dashboard (Panel).
+
+En la parte superior de la página observe la sección Sign-in URL for IAM users in this account (URL de inicio de sesión para los usuarios de IAM de esta cuenta). La URL de inicio de sesión es similar a la siguiente: ``https://123456789012.signin.aws.amazon.com/console``
+
+El enlace se puede usar para iniciar sesión en la cuenta de AWS que está usando.
+
+2- Copie el enlace de inicio de sesión en un editor de texto.
+
+##### Probar los permisos del usuario-1
+
+3- Abra una ventana privada o de incógnito en su navegador.
+
+4- Pegue el enlace de inicio de sesión en el navegador privado y presione ENTER (Intro).
+
+Ahora iniciará sesión como el usuario-1, a quien se contrató como personal de soporte para el almacenamiento de Amazon S3.
+
+5- Inicie sesión con las siguientes credenciales:
+
+- **IAM user name (Nombre de usuario de IAM):** ``user-1``
+- **Password (Contraseña):** ``Lab-Password1``
+
+6- Elija el menú Services (Servicios), elija S3.
+
+7- Haga clic en el nombre de uno de los buckets y busque el contenido.
+
+Debido a que el usuario forma parte del grupo S3-Support en IAM, tiene permiso para ver una lista de buckets de Amazon S3 y su contenido.
+
+Ahora, pruebe si puede obtener acceso a Amazon EC2.
+
+8- Elija el menú Services (Servicios), elija EC2.
+
+9- En el panel de navegación izquierdo, elija Instances (Instancias).
+
+No puede ver ninguna instancia. En su lugar, verá un mensaje de error con el texto You are not authorized to perform this operation (No está autorizado para realizar esta operación). Este usuario no tiene ningún permiso para utilizar Amazon EC2.
+
+Ahora, iniciará sesión como el usuario-2, a quien se contrató como personal de soporte para Amazon EC2.
+
+10- En primer lugar, cierre la sesión del usuario-1 desde la consola:
+
+- Elija el usuario-1 en la esquina superior derecha de la página.
+- Elija Sign Out (Cerrar sesión).
+
+##### Probar los permisos del usuario-2
+
+11- Vuelva a pegar el enlace de inicio de sesión en el navegador privado y presione ENTER (Intro).
+
+12- Inicie sesión con las siguientes credenciales:
+
+- **IAM user name (Nombre de usuario de IAM):** ``user-2``
+- **Password (Contraseña):** ``Lab-Password2``
+- 
+13- Elija el menú Services (Servicios), elija EC2.
+
+14- En el panel de navegación de la izquierda, elija Instances (Instancias).
+
+- Ahora puede ver una instancia EC2. Sin embargo, ya que solo tiene permisos de lectura, no puede realizar ningún cambio en los recursos de Amazon EC2.
+- Si la instancia EC2 no es visible, es posible que la región sea incorrecta. En la esquina superior derecha de la página, elija el nombre de la región y, a continuación, elija la región en la que se encontraba al principio del laboratorio (por ejemplo, Norte de Virginia).
+
+15- Seleccione la instancia EC2.
+
+16- Seleccione el menú de Instance state (Estado de la instancia) y, a continuación, elija Stop instance (Detener instancia).
+
+17- Para confirmar que desea detener la instancia, seleccione Stop (Detener).
+
+Aparece un mensaje de error que dice: *You are not authorized to perform this operation* (No está autorizado para realizar esta operación). Esto demuestra que la política solo le permite ver la información, pero no realizar cambios.
+
+Luego, verifique si el usuario-2 puede acceder a Amazon S3.
+
+18- Elija el menú Services (Servicios), elija S3.
+
+Un mensaje de error dice: You don't have permissions to list buckets (No tiene permisos para listar buckets) porque el usuario-2 no tiene permisos para usar Amazon S3.
+
+Ahora, iniciará sesión como el usuario-3, a quien se contrató como administrador de Amazon EC2.
+
+19- En primer lugar, cierre la sesión del usuario-2 desde la consola:
+
+- Elija el usuario-2 en la esquina superior derecha de la página.
+- Elija Sign Out (Cerrar sesión).
+
+##### Probar los permisos del usuario-3
+
+20- Vuelva a pegar el enlace de inicio de sesión en el navegador privado y presione ENTER (Intro).
+
+21- Inicie sesión con las siguientes credenciales:
+
+- **IAM user name (Nombre de usuario de IAM):** ``user-3``
+- **Password (Contraseña):** ``Lab-Password3``
+
+22- Elija el menú Services (Servicios), elija EC2.
+
+23- En el panel de navegación de la izquierda, elija Instances (Instancias).
+
+- Aparece una instancia EC2. Como administrador de Amazon EC2, ahora debería tener permisos para Detener la instancia de EC2.
+- Si la instancia EC2 no es visible, es posible que la región sea incorrecta. En la esquina superior derecha de la página, elija el nombre de la región y, a continuación, elija la región en la que se encontraba al principio del laboratorio (por ejemplo, Norte de Virginia).
+
+24- Seleccione la instancia EC2.
+
+25- Seleccione el menú de Instance state (Estado de la instancia) y, a continuación, elija Stop instance (Detener instancia).
+
+26- Para confirmar que desea detener la instancia, seleccione Stop (Detener).
+
+En esta ocasión, la acción tiene éxito porque el usuario-3 tiene permisos para detener las instancias EC2. El Instance state (Estado de la instancia) cambia a Stopping (Deteniendo) y comienza a apagarse.
+
+27- Cierre la ventana privada del navegador.
