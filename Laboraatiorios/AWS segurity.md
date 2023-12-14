@@ -109,8 +109,36 @@ Durante el resto del laboratorio, trabajará con estos usuarios y grupos para ha
 
 Su compañía aprovecha los servicios de AWS cada vez más y utiliza muchas instancias de Amazon EC2 y buckets de Amazon S3. Desea dar acceso al nuevo personal dependiendo de su función laboral, como se indica en la siguiente tabla:
 
-**Usuario**	    **En un grupo**	    **Permisos**
-usuario-1	    S3-Support	        Acceso de solo lectura a Amazon S3
-usuario-2	    EC2-Support	        Acceso de solo lectura a Amazon EC2
-usuario-3	    EC2-Admin	        Ver, comenzar y detener las instancias de Amazon EC2
+![image](https://github.com/Megasorfer20/Documentacion-AWS/assets/123566003/49f07c2c-fd3f-4fed-9541-4cab9d783975)
+
+
+### Tarea 2: agregar usuarios a los grupos
+
+Recientemente, contrató al usuario-1 para que brinde soporte a Amazon S3. Lo agregará al grupo S3-Support para que pueda heredar los permisos necesarios mediante la política adjunta AmazonS3ReadOnlyAccess.
+
+Ignore los errores “no autorizados” que aparezcan durante esta tarea. Se producen porque su cuenta de laboratorio tiene permisos limitados, pero esto no afectará su capacidad para completar el laboratorio.
+
+Agregar al usuario-1 al grupo S3-Support.
+En el panel de navegación de la izquierda, elija User groups (Grupos de usuarios).
+Elija el nombre del grupo S3-Support.
+En la pestaña Users (Usuarios), seleccione Add users (Agregar usuarios).
+Seleccione  user-1 (usuario-1) y elija Add users (Agregar usuarios).
+En la pestaña Users (Usuarios), verá que se agregó el usuario-1 al grupo.
+
+Agregar al usuario-2 al grupo EC2-Support.
+Contrató al usuario-2 para que brinde soporte a Amazon EC2. Lo agregará al grupo EC2-Support para que pueda heredar los permisos necesarios mediante la política adjunta AmazonEC2ReadOnlyAccess.
+
+Con lo aprendido en los pasos anteriores, agregue al usuario-2 al grupo EC2-Support.
+Ahora, el usuario-2 debería formar parte del grupo EC2-Support.
+
+Agregar al usuario-3 al grupo EC2-Admin
+Contrató al usuario-3 como administrador de Amazon EC2 para que administre sus instancias EC2. Lo agregará al grupo EC2-Admin para que pueda heredar los permisos necesarios mediante la política adjunta EC2-Admin-Policy.
+
+Con lo aprendido en los pasos anteriores, agregue al usuario-3 al grupo EC2-Admin.
+Ahora, el usuario-3 debería formar parte del grupo EC2-Admin.
+
+En el panel de navegación de la izquierda, elija User groups (Grupos de usuarios).
+Cada grupo debería tener un 1 en la columna Users (Usuarios). Esto indica la cantidad de usuarios en cada grupo.
+
+Si no se muestra un 1 junto a cada grupo, revise las instrucciones anteriores para garantizar que cada usuario esté asignado a un grupo, como se muestra en la tabla de la sección Situación empresarial.
 
