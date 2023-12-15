@@ -104,3 +104,21 @@ En este entorno de laboratorio, el acceso a los servicios y acciones de servicio
 
 Has creado una función Lambda.
 
+### Tarea 2: Configurar un Trigger de Amazon S3 para invocar una función Lambda
+
+En esta tarea, configurará un disparador de S3 en un depósito de S3 existente y su función Lambda. La función Lambda cambia el tamaño de las imágenes y las coloca en otro depósito.
+
+23- En la sección `Function overview` de la consola Lambda cerca de la parte superior de la página, elija `Add trigger`.
+
+24- En la sección `Trigger configuration`, elija S3 en la lista desplegable.
+
+25- Para Depósito, elija el depósito con ``original`` en el nombre.
+
+26- Para Tipo de evento, elija ``All object create events``.
+
+27- Confirme la notificación de `Recursive invocation` seleccionando la casilla de verificación.
+
+28- Elija Agregar.
+
+Ha configurado su función Lambda para que se inicie cuando se carga un nuevo objeto en el depósito de S3.
+
