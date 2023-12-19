@@ -155,7 +155,8 @@ To share the estimate, send the link to others using a communication tool such a
 Note: When you share an estimate, AWS Pricing Calculator automatically saves it and generates a URL to access it. AWS Pricing Calculator saves your estimate for 3 years. 
 
 Para visualizar los estimados: 
-- ![De manera Online](https://calculator.aws/#/estimate?id=5532e45e1085a0bc767cba4cd6179ee753f0ed17)
+
+- https://calculator.aws/#/estimate?id=5532e45e1085a0bc767cba4cd6179ee753f0ed17
  
 Summary
 In this lab, you created a cost estimate using AWS Pricing Calculator. You added the components that are required for a three-tier web application and defined the sizing requirements for each service. You previewed the annual cost estimate and generated a link to share the estimate with others. 
